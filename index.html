@@ -20,12 +20,12 @@ title: Home
             align-items: center;
             height: 100vh;
             overflow: hidden;
-            background: linear-gradient(to right, #00c6ff, #0072ff);
+            background: black;
             font-family: 'Arial', sans-serif;
             color: white;
             text-align: center;
         }
-        
+
         .container {
             position: relative;
             z-index: 10;
@@ -41,23 +41,18 @@ title: Home
             margin-bottom: 20px;
         }
 
-        .waves {
+        .stars {
             position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 20%;
-            background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg') repeat-x;
-            animation: wave 10s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+            width: 1px;
+            height: 1px;
+            background: white;
+            box-shadow: 0 0 5px rgba(255,255,255,0.5);
+            animation: twinkle 1.5s infinite alternate;
         }
 
-        .wave1 {
-            opacity: 0.5;
-            animation: wave 8s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -2s infinite;
-        }
-
-        @keyframes wave {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-1600px); }
+        @keyframes twinkle {
+            from { opacity: 0.3; }
+            to { opacity: 1; }
         }
     </style>
 </head>
@@ -66,7 +61,15 @@ title: Home
         <h1>En Mantenimiento</h1>
         <p>Volveremos pronto. Gracias por tu paciencia.</p>
     </div>
-    <div class="waves wave1"></div>
-    <div class="waves"></div>
+    <script>
+        for (let i = 0; i < 100; i++) {
+            let star = document.createElement("div");
+            star.className = "stars";
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.animationDelay = `${Math.random() * 2}s`;
+            document.body.appendChild(star);
+        }
+    </script>
 </body>
 </html>
