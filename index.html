@@ -13,30 +13,22 @@ title: Home
     <title>Sitio en Mantenimiento</title>
     <style>
         body {
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #f06, #f9a);
+            overflow: hidden;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
             font-family: 'Arial', sans-serif;
             color: white;
             text-align: center;
-            animation: backgroundAnimation 10s infinite alternate;
         }
-
-        @keyframes backgroundAnimation {
-            0% { background: linear-gradient(135deg, #f06, #f9a); }
-            50% { background: linear-gradient(135deg, #06f, #9af); }
-            100% { background: linear-gradient(135deg, #6f0, #af9); }
-        }
-
+        
         .container {
-            max-width: 600px;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 10;
         }
 
         h1 {
@@ -49,18 +41,23 @@ title: Home
             margin-bottom: 20px;
         }
 
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            border-top: 5px solid #fff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+        .waves {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 20%;
+            background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg') repeat-x;
+            animation: wave 10s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .wave1 {
+            opacity: 0.5;
+            animation: wave 8s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -2s infinite;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-1600px); }
         }
     </style>
 </head>
@@ -68,9 +65,8 @@ title: Home
     <div class="container">
         <h1>En Mantenimiento</h1>
         <p>Volveremos pronto. Gracias por tu paciencia.</p>
-        <div class="spinner"></div>
     </div>
+    <div class="waves wave1"></div>
+    <div class="waves"></div>
 </body>
 </html>
-
-
