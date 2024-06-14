@@ -19,4 +19,4 @@ author:              "Paul Le"
 #  path: rss-feed.xml
 
 # _config.yml
-maintenance_mode: true
+maintenance_mode: false
