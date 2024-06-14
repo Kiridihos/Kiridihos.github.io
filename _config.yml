@@ -18,3 +18,5 @@ author:              "Paul Le"
 #feed:
 #  path: rss-feed.xml
 
+# _config.yml
+maintenance_mode: true
