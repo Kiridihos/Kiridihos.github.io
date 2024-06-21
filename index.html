@@ -6,70 +6,37 @@ title: Home
 -->
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sitio en Mantenimiento</title>
+    <title>Página en Mantenimiento</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            background: black;
-            font-family: 'Arial', sans-serif;
-            color: white;
+            font-family: Arial, sans-serif;
             text-align: center;
         }
-
         .container {
-            position: relative;
-            z-index: 10;
+            margin-top: 50px;
         }
-
-        h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
+        .maintenance-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
         }
-
-        p {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-
-        .stars {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
-            box-shadow: 0 0 5px rgba(255,255,255,0.5);
-            animation: twinkle 1.1s infinite alternate;
-        }
-
-        @keyframes twinkle {
-            from { opacity: 0.3; }
-            to { opacity: 1; }
+        .maintenance-image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>En Mantenimiento</h1>
-        <p>Volveremos pronto. Gracias por tu paciencia.</p>
+        <div class="maintenance-text">
+            En mantenimiento
+        </div>
+        <img src="ruta/de/tu/imagen.jpg" alt="Imagen de mantenimiento" class="maintenance-image">
     </div>
-    <script>
-        for (let i = 0; i < 300; i++) {
-            let star = document.createElement("div");
-            star.className = "stars";
-            star.style.top = `${Math.random() * 100}vh`;
-            star.style.left = `${Math.random() * 100}vw`;
-            star.style.animationDelay = `${Math.random() * 2}s`;
-            document.body.appendChild(star);
-        }
-    </script>
 </body>
 </html>
