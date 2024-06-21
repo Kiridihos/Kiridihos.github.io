@@ -6,66 +6,71 @@ title: Home
 -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página en Mantenimiento</title>
+    <title>Sitio en Mantenimiento</title>
     <style>
         body {
-            background-color: #000;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            height: 100vh;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background: black;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
             position: relative;
-        }
-        .stars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://example.com/stars.jpg'); /* Reemplaza con la ruta de tus estrellas de noche */
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-        .maintenance-text {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        .maintenance-image {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 80%;
-            height: auto;
             z-index: 10;
         }
-        .gear-icon {
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .stars {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100px; /* Ajusta el tamaño del engranaje según tus necesidades */
-            height: 100px;
-            z-index: 5;
-            opacity: 0.7; /* Ajusta la opacidad según lo transparente que desees el engranaje */
+            width: 2px;
+            height: 2px;
+            background: white;
+            box-shadow: 0 0 5px rgba(255,255,255,0.5);
+            animation: twinkle 1.1s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from { opacity: 0.3; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
-    <div class="stars"></div>
-    <div class="maintenance-text">
-        En mantenimiento
+    <img src="LOGO FINDITECH TRANSPARENTE.png" alt="Imagen de mantenimiento" class="maintenance-image">
+    <div class="container">
+        <h1>En Mantenimiento</h1>
+        <p>Volveremos pronto. Gracias por tu paciencia.</p>
     </div>
-    <img src="ruta/de/tu/imagen.jpg" alt="Imagen de mantenimiento" class="maintenance-image">
-    <img src="ruta/de/tu/engranaje.png" alt="Engranaje" class="gear-icon">
+    <script>
+        for (let i = 0; i < 300; i++) {
+            let star = document.createElement("div");
+            star.className = "stars";
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.animationDelay = `${Math.random() * 2}s`;
+            document.body.appendChild(star);
+        }
+    </script>
 </body>
 </html>
-
